@@ -1,0 +1,38 @@
+{
+	"lang_dict_en": {
+		"title": "The Sims 2: clone a neighborhood",
+		"language": "Language",
+		"origin_path": "Source path",
+		"destination_path": "Destination path",
+		"run": "Run",
+		"help": "Help",
+		"exit": "Exit",
+		"checking_message": "Are you sure?", 
+		"selected_origin_message": "> Selected source path: {origin_directory} ",
+		"selected_destination_message": "> Selected destination path: {dest_directory}",
+		"start_copy_message": "> The source directory will be copied... ",
+		"directory_list_message": "> Directory list: {list_directory} ",
+		"copying_message": "> {directory_name} will be copied ",
+		"start_rename_message": "> {directory_name} will be renamed as {renamed_folder} ",
+		"renaming_message": "> All the files are being renamed... ",
+		"finished_message": "> Finished copying and renaming files "
+	},
+	"lang_dict_es": {
+		"title": "Los Sims 2: clonar un barrio",
+		"language": "Idioma",
+		"origin_path": "Ruta de origen",
+		"destination_path": "Ruta de destino",
+		"run": "Ejecutar",
+		"help": "Ayuda",
+		"exit": "Salir",
+		"checking_message": "¿Está seguro?", 
+		"selected_origin_message": "> Ruta de origen seleccionada: {origin_directory} ",
+		"selected_destination_message": "> Ruta de destino seleccionada: {dest_directory}",
+		"start_copy_message": "> Se va a proceder a copiar el directorio de origen... ",
+		"directory_list_message": "> Listado de directorios: {list_directory} ",
+		"copying_message": "> Se va a copiar el directorio {directory_name} ",
+		"start_rename_message": "> Se va a renombrar el directorio {directory_name} como {renamed_folder} ",
+		"renaming_message": "> Se están renombrando todos los archivos... ",
+		"finished_message": "> Se ha terminado de copiar y renombrar los archivos "
+	}
+}
