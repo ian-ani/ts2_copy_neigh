@@ -11,7 +11,7 @@
 
 Made with **Python** to copy a **The Sims 2** neighborhood of your choice. If said neighborhood
 already exists, it will increment its ID number and also adjust the corresponding files within the subdirectories.  
-Tested on Windows 10.
+Tested on Windows 10 and **The Sims 2 - Ultimate Collection**.
 
 ## Built with
 

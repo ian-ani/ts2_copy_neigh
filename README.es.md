@@ -12,7 +12,7 @@
 Programa creado con **Python** para la copia de un barrio de **Los Sims 2** a elección del usuario.
 Si el barrio ya existe incrementará el número de la ID del barrio y también lo hará con los archivos
 correspondientes dentro de los subdirectorios.  
-Probado con Windows 10.
+Probado con Windows 10 y **Los Sims 2 - Ultimate Collection**.
 
 ## Hecho con
 
