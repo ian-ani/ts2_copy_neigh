@@ -6,7 +6,7 @@ from tkinter.messagebox import askyesno
 import webbrowser
 import json
 
-import ts2_backend as ts2
+import core
 import utils.utiles as util
 
 class App:
@@ -57,13 +57,13 @@ class App:
         self.output()
   
     def origin_path_button(self):
-        parent_directory, self.origin_directory = ts2.select_directory()
+        parent_directory, self.origin_directory = core.select_directory()
         self.switch_state()
 
         self.logger += self.selected_language["selected_origin_message"].format(origin_directory=self.origin_directory)+"\n"
 
     def dest_path_button(self):
-        parent_dest_directory, self.dest_directory = ts2.select_directory()
+        parent_dest_directory, self.dest_directory = core.select_directory()
         self.switch_state()
 
         self.logger += self.selected_language["selected_destination_message"].format(dest_directory=self.dest_directory)+"\n"
@@ -75,17 +75,17 @@ class App:
             self.selected_language["start_copy_message"].format(dest_directory=self.dest_directory)+"\n"
 
             self.logger += self.selected_language["start_copy_message"]+"\n"
-            list_directory = ts2.ls_directory(self.dest_directory)
+            list_directory = core.ls_directory(self.dest_directory)
             self.logger += self.selected_language["directory_list_message"].format(list_directory=list_directory)+"\n"
             directory_name = os.path.basename(self.origin_directory)
             self.logger += self.selected_language["copying_message"].format(directory_name=directory_name)+"\n"
-            renamed_folder = ts2.folder_number(list_directory, directory_name)
+            renamed_folder = core.folder_number(list_directory, directory_name)
             self.logger += self.selected_language["start_rename_message"].format(directory_name=directory_name, renamed_folder=renamed_folder)+"\n"
-            ts2.copy_folder(self.origin_directory, self.dest_directory, renamed_folder, list_directory)
-            neighborhood_files = ts2.ls_directory(self.dest_directory)
-            full_path = ts2.create_paths(self.dest_directory, renamed_folder)
+            core.copy_folder(self.origin_directory, self.dest_directory, renamed_folder, list_directory)
+            neighborhood_files = core.ls_directory(self.dest_directory)
+            full_path = core.create_paths(self.dest_directory, renamed_folder)
             self.logger += self.selected_language["renaming_message"]+"\n"
-            ts2.rename_files(full_path, renamed_folder)
+            core.rename_files(full_path, renamed_folder)
             self.logger += self.selected_language["finished_message"]+"\n"
         else:
             pass

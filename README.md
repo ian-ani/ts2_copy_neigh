@@ -6,6 +6,7 @@
 - [About the project](#About-the-project)
 - [Built with](#Built-with)
 - [Usage](#Usage)
+- [To Do](#To-Do)
 
 ## About the project
 
@@ -29,3 +30,9 @@ Tested on Windows 10 and **The Sims 2 - Ultimate Collection**.
 3. Click on **Run** to create a copy.
 4. The **Help** button provides more information about how to use this program.
 5. The **Language** button allows switching between English and Spanish.
+
+## To-Do
+
+- Refactoring and exception handling.
+- File sorting and renaming.
+- Improve printing of every step taken.
