@@ -28,11 +28,10 @@ Tested on Windows 10 and **The Sims 2 - Ultimate Collection**.
 1. Click on **Source path** to select a neighborhood. For more information, click on **Help**.
 2. Click on **Destination path** to select where the neighborhood will be saved. For more information, click on **Help**.
 3. Click on **Run** to create a copy.
-4. The **Help** button provides more information about how to use this program.
-5. The **Language** button allows switching between English and Spanish.
+4. The **Language** button allows switching between English and Spanish.
+5. The **Help** button provides more information about how to use this program.
 
 ## To-Do
 
-- Refactoring and exception handling.
-- File sorting and renaming.
-- Improve printing of every step taken.
+- Might need more refactoring.
+- Optimization of some *core* functions.

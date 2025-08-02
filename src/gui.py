@@ -106,9 +106,9 @@ class App:
             self.write_log("start_rename_message", directory_name=directory_name, renamed_folder=renamed_folder)
             core.copy_folder(self.source_directory, self.dest_directory, renamed_folder, list_directory)
             core.ls_directory(self.dest_directory)
-            full_path = core.create_paths(self.dest_directory, renamed_folder)
+            full_path = core.create_path(self.dest_directory, renamed_folder)
             self.write_log("renaming_message")
-            core.rename_files(full_path, renamed_folder)
+            core.rename_file(full_path, renamed_folder)
             self.write_log("finished_message")
 
     # Blocked until both directories have been selected

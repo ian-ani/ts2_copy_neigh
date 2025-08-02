@@ -6,6 +6,7 @@ from pathlib import Path
 from tkinter import Tk
 from tkinter import filedialog
 
+# Asks user to choose a directory
 def select_directory():
     root = Tk()
     root.withdraw()
@@ -17,58 +18,52 @@ def select_directory():
 
     return parent, selected_directory
 
+# Lists directories in destination folder
 def ls_directory(directory):
-    folders = os.listdir(directory)
-    
-    return folders
+    return os.listdir(directory)
 
-def folder_number(directory, _directory_name):
+# Folder number for renaming (ex. if N001 -> N001 but if N001 already exists then N001 -> N002)
+def folder_number(directory, directory_name):
     for i in range(1, 999):
-        number_str = _directory_name[0]+"{:0>{}}".format(i, 3)
+        number = directory_name[0]+"{:0>{}}".format(i, 3)
     
-        if number_str not in directory:
-            return number_str
+        if number not in directory:
+            return number
         
-def copy_folder(_origin_directory, _dest_directory, _renamed_folder, _list_directory):
-    copied_folder = os.path.join(_dest_directory, _renamed_folder)
+# Copies folders from source to destination     
+def copy_folder(source_directory, dest_directory, renamed_folder, list_directory):
+    copied_folder = os.path.join(dest_directory, renamed_folder)
     
-    if _renamed_folder not in _list_directory:
-        shutil.copytree(_origin_directory, copied_folder)
-    else:
-        pass
+    # If it isn't in destination directory, then copy its folders
+    if renamed_folder not in list_directory:
+        shutil.copytree(source_directory, copied_folder)
     
-def create_paths(_dest_directory, _renamed_folder):
-    
-    full_path = os.path.join(_dest_directory, _renamed_folder)
-    
-    return full_path
+# Creates path of destination folder and renamed folder (related to folder_number -> returns renamed_folder)
+def create_path(dest_directory, renamed_folder): 
+    return os.path.join(dest_directory, renamed_folder)
 
-def rename_files(directory, _renamed_folder):   
+# Copies files...
+def copy_file(entry, renamed_folder, directory):
+    neighborhood_str_split = entry.name.split("_")
+    neighborhood_str_split[0] = renamed_folder
+    neighborhood_name_result = "_".join(neighborhood_str_split)
+
+    origin_file_copy_path = os.path.join(directory, entry.name)
+    dest_file_copy_path = os.path.join(directory, neighborhood_name_result)
+
+    shutil.move(origin_file_copy_path, dest_file_copy_path)
+
+# ...while it renames them
+def rename_file(directory, renamed_folder):  
     for folder in os.scandir(directory):
-        if Path(folder).is_dir() and folder.name != "Storytelling":
-            folder_path = os.path.join(directory, folder.name)
-            for entry in os.scandir(folder_path):
-                if entry.is_file():
-                    neighborhood_str_split = entry.name.split("_")
-                    neighborhood_str_split[0] = _renamed_folder
-                    neighborhood_name_result = "_".join(neighborhood_str_split)
-    
-                    origin_file_copy_path = os.path.join(folder_path, entry.name)
-                    dest_file_copy_path = os.path.join(folder_path, neighborhood_name_result)
-    
-                    shutil.move(origin_file_copy_path, dest_file_copy_path)
-        elif folder.is_file():
+        # Copies and renames files inside root directory
+        if folder.is_file():
             for entry in os.scandir(directory):
                 if entry.is_file():
-                    neighborhood_str_split = entry.name.split("_")
-                    neighborhood_str_split[0] = _renamed_folder
-                    neighborhood_name_result = "_".join(neighborhood_str_split)
-    
-                    origin_file_copy_path = os.path.join(directory, entry.name)
-                    dest_file_copy_path = os.path.join(directory, neighborhood_name_result)
-    
-                    shutil.move(origin_file_copy_path, dest_file_copy_path)
-
-
-# En principio falta arreglar este archivo y lo mismo algun texto en los archivos de ayuda
-# requirements.txt
+                    copy_file(entry, renamed_folder, directory)
+        # Copies and renames files of subdirectories
+        elif Path(folder).is_dir() and folder.name != "Storytelling":
+            folder_path = os.path.join(directory, folder.name)
+            for entry in os.scandir(os.path.join(directory, folder.name)):
+                if entry.is_file():
+                    copy_file(entry, renamed_folder, folder_path)

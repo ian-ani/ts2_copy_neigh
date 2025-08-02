@@ -31,12 +31,10 @@ Para más información, clic en **Ayuda**.
 2. Hacer clic en **Ruta de destino** para elegir la ruta de destino donde se guardará el barrio.
 Para más información, clic en **Ayuda**.
 3. Hacer clic en **Ejecutar** para hacer la copia.
-4. El botón de **Ayuda** proporciona más información sobre el uso del programa.
-5. El botón **Idioma** permite elegir entre inglés y español.
+4. El botón **Idioma** permite elegir entre inglés y español.
+5. El botón de **Ayuda** proporciona más información sobre el uso del programa.
 
 ## Por hacer
 
-- Manejo de errores y excepciones.
-- Refactorización de código (hay redundancia).
-- Ordenar los archivos en directorios con nombres más apropiados.
-- Mejorar la salida por pantalla de los pasos que están sucediendo.
+- Puede que todavía se pueda refactorizar mejor.
+- Hace falta optimizar algunas funciones en *core*.
