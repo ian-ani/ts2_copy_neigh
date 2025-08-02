@@ -1,4 +1,4 @@
-# PYTHON VERSION: 3.11.9
+# PYTHON VERSION: 3.12.7
 
 import os
 import shutil
@@ -68,3 +68,7 @@ def rename_files(directory, _renamed_folder):
                     dest_file_copy_path = os.path.join(directory, neighborhood_name_result)
     
                     shutil.move(origin_file_copy_path, dest_file_copy_path)
+
+
+# En principio falta arreglar este archivo y lo mismo algun texto en los archivos de ayuda
+# requirements.txt

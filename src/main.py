@@ -1,4 +1,4 @@
-# PYTHON VERSION: 3.11.9
+# PYTHON VERSION: 3.12.7
 
 import gui
 
