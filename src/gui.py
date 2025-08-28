@@ -2,6 +2,7 @@
 
 import os.path
 import tkinter as tk
+from tkinter import PhotoImage
 from tkinter.messagebox import askyesno
 import webbrowser
 import json
@@ -9,22 +10,26 @@ import json
 import core
 import utils.utiles as util
 import constants as c
+from utils.utiles import resource_path
 
 class App:
 
     # Logger
     log = ""
     lines = 0
-
-    # UI texts
-    path_dict = os.path.join("language", "lang_dict.json")
-    with open(path_dict, "r", encoding="utf-8") as f:
-            lang_dict = json.load(f)
-
-    lang_dict_en = lang_dict["lang_dict_en"]
-    lang_dict_es = lang_dict["lang_dict_es"]
+    
+    # App icon
+    icon = resource_path(os.path.join("utils", "icon.ico"))
 
     def __init__(self):
+        # UI texts
+        path_dict = resource_path(os.path.join("language", "lang_dict.json"))
+        with open(path_dict, "r", encoding="utf-8") as f:
+                lang_dict = json.load(f)
+
+        self.lang_dict_en = lang_dict["lang_dict_en"]
+        self.lang_dict_es = lang_dict["lang_dict_es"]
+
         # Project directory (src)
         self.PY_FILE_PATH = os.path.dirname(os.path.abspath(__file__))
 
@@ -50,6 +55,7 @@ class App:
     # Main window
     def setup_main_window(self):
         self.main_window = tk.Tk()
+        self.main_window.iconbitmap(True, self.icon)
         self.main_window.geometry(c.WINDOW_GEOMETRY)
         self.main_window.title(self.ui_text["title"])
         self.main_window.configure(bg=c.WINDOW_BG_COLOR)
